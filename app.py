@@ -62,3 +62,22 @@ def get_spot_values(grid, row, col):
             possibilities.append(number)
 
     return possibilities
+
+# solve and return the puzzle
+def solve_sudoku(grid):
+    still_going = True
+    while still_going:
+        changes = 0
+        for row in range(9):
+            for col in range(9):
+                if grid[row][col] == 0:
+                    potential_values = get_spot_values(grid, row, col)
+                    if len(potential_values) == 1:
+                        grid[row][col] = potential_values[0]
+                        changes += 1
+        if changes == 0:
+            still_going = False
+    board_print(grid)
+    return grid
+
+solve_sudoku(sudoku)
