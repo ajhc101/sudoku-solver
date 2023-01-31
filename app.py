@@ -12,3 +12,13 @@ sudoku = np.array([
     [ 0, 0, 0, 0, 8, 0, 6, 0, 1],
     [ 0, 0, 0, 0, 0, 0, 0, 4, 0]
 ])
+
+# return a list of numbers already used in a row
+def get_values_in_row(grid, row):
+    values_in_row = []
+
+    for number in grid[row, :]:
+        if number != 0:
+            values_in_row.append(number)
+
+    return values_in_row
