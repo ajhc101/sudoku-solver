@@ -22,3 +22,13 @@ def get_values_in_row(grid, row):
             values_in_row.append(number)
 
     return values_in_row
+
+# return a list of numbers already used in a column
+def get_values_in_column(grid, col):
+    values_in_column = []
+
+    for number in grid[:, col]:
+        if number != 0:
+            values_in_column.append(number)
+
+    return values_in_column
