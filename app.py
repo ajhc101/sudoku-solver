@@ -48,3 +48,17 @@ def get_values_in_box(grid, row, col):
                 values_in_box.append(little_grid[r, c])
 
     return values_in_box
+
+# return a list of numbers that can be placed in a particular spot 
+def get_spot_values(grid, row, col):
+    numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    values_in_row = get_values_in_row(grid, row)
+    values_in_column = get_values_in_column(grid, col)
+    values_in_box = get_values_in_box(grid, row, col)
+    possibilities = []
+
+    for number in numbers:
+        if (number not in values_in_row) and (number not in values_in_column) and (number not in values_in_box):
+            possibilities.append(number)
+
+    return possibilities
